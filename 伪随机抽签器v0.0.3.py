@@ -256,6 +256,8 @@ class add_del:
                 all_label.remove(str(ordinal+1))
             if re_0.get() and re_1.get():
                 all_change[ordinal].config(bg='purple')
+                if str(all_change[ordinal]['text'])in deleted:
+                    deleted.remove(str(all_change[ordinal]['text']))
         else:
             all_change[ordinal].config(bg='#C0C0C0')
             if str(ordinal+1) not in all_label:
@@ -292,7 +294,7 @@ class check:
                     has_label.append(NI)
         for key,value in all_change.items():
             if (not re_1.get() or not re_0.get()) and value['bg']=='purple':
-                value.config(bg='#C0C0C0')
+                value.config(bg='red')
                 if key+1 in deleted:
                     deleted.remove(str(key+1))
                 if str(key+1) not in all_label:
